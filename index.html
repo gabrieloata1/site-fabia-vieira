@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fábia Vieira | Organização Sistêmica e Sustentável</title>
+  <meta name="description" content="Fábia Vieira — Gestora de Organização Sistêmica e Sustentável. + de 30 anos transformando pessoas, casas e empresas. Consultoria, treinamentos e organização de ambientes.">
+  <meta property="og:title" content="Fábia Vieira | Organização Sistêmica e Sustentável">
+  <meta property="og:description" content="+ de 30 anos transformando pessoas, casas e empresas. Organização que transforma ambientes e vidas.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', Arial, sans-serif;
+      color: #3a3330;
+      background: #f7f4ef;
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+
+    /* ========== CSS VARIABLES ========== */
+    :root {
+      --paper: #f7f4ef;
+      --ink: #3a3330;
+      --muted: #7a706a;
+      --line: #ddd5cb;
+      --accent: #8b7355;
+      --accent-light: #b69e7e;
+      --dark: #3a3330;
+      --warm-bg: #efe9df;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --sans: 'DM Sans', Arial, sans-serif;
+      --gutter: clamp(22px, 5.5vw, 88px);
+    }
+
+    /* ========== LAYOUT ========== */
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding-inline: var(--gutter);
+    }
+
+    /* ========== SKIP LINK ========== */
+    .skip-link {
+      position: fixed; top: -90px; left: 20px;
+      padding: 12px 20px; background: var(--ink); color: white; z-index: 100;
+    }
+    .skip-link:focus { top: 12px; }
+
+    /* ========== HEADER ========== */
+    .site-header {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      background: var(--paper);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+    .brand-icon {
+      width: 42px; height: 42px;
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--accent);
+      font-style: italic;
+    }
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .brand-caption {
+      display: block;
+      font-size: 7.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-top: 4px;
+      color: var(--muted);
+    }
+
+    .desktop-nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .desktop-nav a {
+      position: relative;
+      font-size: 12px;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+    .desktop-nav a:not(.nav-contact)::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 100%; bottom: -8px;
+      height: 1px;
+      background: var(--ink);
+      transition: right 0.2s;
+    }
+    .desktop-nav a:hover::after,
+    .desktop-nav a[aria-current="page"]::after { right: 0; }
+    .nav-contact {
+      display: flex; gap: 30px; align-items: center;
+      border: 1px solid var(--accent-light);
+      padding: 12px 20px;
+      margin-left: 16px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-contact:hover {
+      background: var(--dark);
+      color: var(--paper);
+    }
+
+    /* Mobile menu */
+    .menu-button {
+      display: none;
+      align-items: center;
+      gap: 12px;
+      background: transparent;
+      border: 1px solid var(--line);
+      padding: 10px 15px;
+      min-height: 44px;
+      font-size: 12px;
+      cursor: pointer;
+      font-family: var(--sans);
+      color: var(--ink);
+    }
+    .menu-bars {
+      width: 18px; display: grid; gap: 5px;
+    }
+    .menu-bars span {
+      height: 1px; background: currentColor; width: 100%;
+      transition: transform 0.2s;
+    }
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 100px; left: 0; right: 0; bottom: 0;
+      background: var(--paper);
+      z-index: 40;
+      padding: 40px var(--gutter);
+      flex-direction: column;
+      gap: 24px;
+    }
+    .mobile-nav.is-open { display: flex; }
+    .mobile-nav a {
+      font-family: var(--serif);
+      font-size: 36px;
+      letter-spacing: -0.02em;
+    }
+
+    /* ========== HERO ========== */
+    .home-hero {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      min-height: 680px;
+      padding-top: 34px;
+      padding-bottom: 40px;
+      gap: 40px;
+    }
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding-block: 34px;
+    }
+    .hero-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .hero-copy h1 {
+      font-family: var(--serif);
+      font-size: clamp(52px, 6vw, 90px);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin: 28px 0 24px;
+      font-weight: 400;
+    }
+    .hero-copy h1 em {
+      display: block;
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-copy > p {
+      max-width: 360px;
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+    .hero-actions {
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    /* Buttons */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 24px;
+      border: 1px solid var(--dark);
+      background: var(--dark);
+      color: var(--paper);
+      font-size: 12px;
+      font-weight: 500;
+      font-family: var(--sans);
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+    .button:hover {
+      background: #544a44;
+      transform: translateY(-2px);
+    }
+    .button.light {
+      background: var(--paper);
+      color: var(--ink);
+      border-color: var(--paper);
+    }
+    .button.outline {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    .button.outline:hover {
+      border-color: var(--ink);
+    }
+
+    .text-link {
+      display: inline-flex;
+      gap: 14px;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 500;
+      border-bottom: 1px solid var(--ink);
+      padding-block: 10px;
+      transition: gap 0.2s;
+    }
+    .text-link:hover { gap: 22px; }
+
+    .arrow {
+      width: 16px; height: 16px;
+    }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative;
+      min-width: 0;
+      min-height: 580px;
+      overflow: hidden;
+      background: var(--warm-bg);
+    }
+    .hero-visual > img {
+      width: 100%; height: 100%;
+      position: absolute; inset: 0;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+    .hero-visual-placeholder {
+      width: 100%; height: 100%;
+      position: absolute; inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      background: linear-gradient(145deg, #e8ddd0 0%, #d4c5b2 100%);
+    }
+    .hero-visual-placeholder svg {
+      width: 80px; height: 80px;
+      color: var(--accent);
+      opacity: 0.4;
+    }
+    .hero-visual-placeholder span {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.6;
+    }
+    .hero-caption {
+      position: absolute;
+      bottom: 22px; left: 22px; right: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      align-items: center;
+      padding: 16px 19px;
+      background: rgba(247, 244, 239, 0.95);
+      backdrop-filter: blur(10px);
+    }
+    .hero-caption small {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 8px;
+      color: var(--muted);
+    }
+    .hero-caption span {
+      font-family: var(--serif);
+      font-size: 22px;
+      line-height: 1.4;
+    }
+
+    /* ========== VALUES STRIP ========== */
+    .values-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-block: 1px solid var(--line);
+      padding-block: 25px;
+      gap: 20px;
+    }
+    .values-strip span {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .values-strip .star {
+      color: var(--accent);
+      font-size: 20px;
+    }
+
+    /* ========== SECTIONS ========== */
+    .section {
+      padding-block: 90px;
+    }
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 46px;
+    }
+    .section-heading h2 {
+      font-family: var(--serif);
+      font-size: clamp(42px, 4.5vw, 68px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+    }
+    .section-heading h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    /* ========== ABOUT SECTION ========== */
+    .intro-section {
+      padding-block: 90px;
+    }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 2.2fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .intro-content h2 {
+      font-family: var(--serif);
+      font-size: clamp(38px, 4vw, 62px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      max-width: 750px;
+      font-weight: 400;
+    }
+    .intro-content h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .intro-bottom {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 70px;
+      margin-top: 35px;
+      align-items: end;
+    }
+    .intro-bottom p {
+      color: var(--muted);
+      max-width: 480px;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    /* ========== SERVICES ========== */
+    .services-preview {
+      background: var(--warm-bg);
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 80px;
+    }
+    .services-intro h2 {
+      font-family: var(--serif);
+      font-size: clamp(42px, 4vw, 62px);
+      margin-bottom: 28px;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+    }
+    .services-intro h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .services-intro > p {
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 310px;
+      line-height: 1.8;
+    }
+    .services-intro .text-link {
+      margin-top: 26px;
+    }
+    .service-list {
+      border-top: 1px solid #c9bfb3;
+    }
+    .service-row {
+      display: grid;
+      grid-template-columns: 28px 1fr 24px;
+      gap: 20px;
+      border-bottom: 1px solid #c9bfb3;
+      padding: 28px 0;
+      align-items: start;
+      transition: padding 0.2s;
+      text-decoration: none;
+    }
+    .service-row:hover { padding-left: 8px; }
+    .service-row > span:first-child {
+      font-size: 10px;
+      padding-top: 6px;
+      color: var(--muted);
+    }
+    .service-row h3 {
+      font-family: var(--serif);
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 400;
+    }
+    .service-row p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 9px;
+      max-width: 350px;
+      line-height: 1.7;
+    }
+    .service-row > .arrow { margin-top: 9px; }
+
+    /* ========== PORTFOLIO PREVIEW ========== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px 36px;
+    }
+    .projects-grid.staggered .project-card:nth-child(2) {
+      padding-top: 70px;
+    }
+    .project-card { overflow: hidden; }
+    .project-photo {
+      aspect-ratio: 1.12;
+      position: relative;
+      overflow: hidden;
+      background: var(--warm-bg);
+    }
+    .project-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s;
+    }
+    .project-link:hover .project-photo img {
+      transform: scale(1.045);
+    }
+    .project-tag {
+      position: absolute;
+      top: 20px; left: 20px;
+      padding: 6px 12px;
+      font-size: 9px;
+      background: var(--paper);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .project-photo-placeholder {
+      width: 100%; height: 100%;
+      position: absolute; inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      background: linear-gradient(135deg, #e8ddd0, #d6c9b8);
+    }
+    .project-photo-placeholder svg {
+      width: 48px; height: 48px;
+      color: var(--accent);
+      opacity: 0.35;
+    }
+    .project-photo-placeholder span {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.5;
+    }
+    .project-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 19px;
+    }
+    .project-info h3 {
+      font-family: var(--serif);
+      font-size: 28px;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+    }
+    .project-info p {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+    .project-number {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    /* ========== QUOTE ========== */
+    .quote-band {
+      text-align: center;
+      padding-block: 90px;
+    }
+    .quote-band .flower {
+      width: 45px; height: 45px;
+      margin: 0 auto 26px;
+      color: var(--accent);
+    }
+    .quote-band p {
+      font-family: var(--serif);
+      font-size: clamp(30px, 3.8vw, 48px);
+      line-height: 1.18;
+      max-width: 780px;
+      margin: auto;
+      letter-spacing: -0.025em;
+    }
+    .quote-band .caption {
+      display: block;
+      margin-top: 24px;
+      font-family: var(--sans);
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ========== CTA BAND ========== */
+    .cta-band {
+      background: var(--dark);
+      color: var(--paper);
+      padding-block: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .cta-band h2 {
+      font-family: var(--serif);
+      font-size: clamp(40px, 4.5vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+    }
+    .cta-band h2 em {
+      color: var(--accent-light);
+      font-style: italic;
+    }
+    .cta-band .eyebrow {
+      margin-bottom: 22px;
+      color: #c9bfb3;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .cta-band .button { flex-shrink: 0; }
+
+    /* ========== FOOTER ========== */
+    .site-footer {
+      padding-top: 58px;
+      padding-bottom: 24px;
+    }
+    .footer-main {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 70px;
+      padding-bottom: 45px;
+    }
+    .footer-brand p {
+      font-size: 12px;
+      color: var(--muted);
+      max-width: 250px;
+      margin-top: 20px;
+      line-height: 1.8;
+    }
+    .footer-heading {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      color: var(--ink);
+    }
+    .footer-links {
+      display: grid;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .footer-links a:hover {
+      color: var(--ink);
+      text-decoration: underline;
+    }
+    .footer-bottom {
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      font-size: 9px;
+      color: var(--muted);
+    }
+    .footer-bottom a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .footer-bottom .back-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    /* ========== WHATSAPP FLOAT ========== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 999;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25d366;
+      color: #fff !important;
+      padding: 12px 18px 12px 14px;
+      border-radius: 999px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.18), 0 2px 6px rgba(37,211,102,.3);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease;
+    }
+    .whatsapp-float:hover {
+      background: #20ba5a;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 26px rgba(0,0,0,.22), 0 4px 12px rgba(37,211,102,.4);
+    }
+    .whatsapp-float .whatsapp-icon {
+      width: 22px; height: 22px;
+      fill: currentColor; flex-shrink: 0;
+    }
+
+    /* ========== ANIMATIONS ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .desktop-nav { display: none; }
+      .menu-button { display: flex; }
+      .home-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 20px;
+        gap: 30px;
+      }
+      .hero-copy h1 { font-size: clamp(48px, 12vw, 76px); }
+      .hero-visual { min-height: 400px; }
+      .intro-grid { grid-template-columns: 1fr; gap: 16px; }
+      .intro-bottom { grid-template-columns: 1fr; gap: 24px; margin-top: 24px; }
+      .services-preview { grid-template-columns: 1fr; gap: 40px; }
+      .projects-grid { grid-template-columns: 1fr; gap: 40px; }
+      .projects-grid.staggered .project-card:nth-child(2) { padding-top: 0; }
+      .cta-band { flex-direction: column; text-align: center; padding-block: 50px; }
+      .footer-main { grid-template-columns: 1fr; gap: 30px; }
+      .values-strip { flex-wrap: wrap; justify-content: center; gap: 14px; }
+    }
+    @media (max-width: 560px) {
+      .hero-copy h1 { font-size: clamp(42px, 14vw, 68px); }
+      .hero-visual { min-height: 350px; }
+      .section { padding-block: 60px; }
+      .section-heading h2 { font-size: clamp(36px, 10vw, 50px); }
+      .services-intro h2 { font-size: clamp(36px, 10vw, 50px); }
+      .intro-content h2 { font-size: clamp(32px, 9vw, 46px); }
+      .quote-band p { font-size: clamp(26px, 8vw, 40px); }
+      .cta-band h2 { font-size: clamp(34px, 10vw, 50px); }
+      .service-row h3 { font-size: 24px; }
+      .project-info h3 { font-size: 24px; }
+      .hero-caption { padding: 12px 14px; }
+      .hero-caption span { font-size: 18px; }
+      .whatsapp-float {
+        padding: 13px;
+        border-radius: 50%;
+      }
+      .whatsapp-float .whatsapp-float-label { display: none; }
+    }
+  </style>
+</head>
+<body id="topo">
+
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header container">
+    <a class="brand" href="/" aria-label="Fábia Vieira — Início">
+      <div class="brand-icon">F</div>
+      <span>
+        <span class="brand-name">Fábia Vieira</span>
+        <span class="brand-caption">Organização Sistêmica &amp; Sustentável</span>
+      </span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <a href="/" aria-current="page">Início</a>
+      <a href="/sobre">Sobre</a>
+      <a href="/servicos">Serviços</a>
+      <a href="/portfolio">Portfólio</a>
+      <a href="/contato" class="nav-contact">
+        Fale comigo
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg>
+      </a>
+    </nav>
+    <button class="menu-button" aria-expanded="false" aria-controls="mobile-menu" onclick="document.getElementById('mobile-menu').classList.toggle('is-open'); this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='false')">
+      <div class="menu-bars"><span></span><span></span></div>
+      Menu
+    </button>
+  </header>
+
+  <nav id="mobile-menu" class="mobile-nav" aria-label="Menu mobile">
+    <a href="/">Início</a>
+    <a href="/sobre">Sobre</a>
+    <a href="/servicos">Serviços</a>
+    <a href="/portfolio">Portfólio</a>
+    <a href="/contato">Contato</a>
+  </nav>
+
+  <!-- ========== MAIN ========== -->
+  <main id="conteudo">
+
+    <!-- HERO -->
+    <section class="home-hero container" aria-label="Apresentação">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Organização Sistêmica e Sustentável</p>
+        <h1>
+          A arte de<br>
+          <em>transformar</em>
+          ambientes.
+        </h1>
+        <p>Mais de 30 anos de experiência transformando pessoas, casas e empresas. Ambientes que acolhem, funcionam e inspiram.</p>
+        <div class="hero-actions">
+          <a class="button" href="https://wa.me/5585992426846?text=Ol%C3%A1%20F%C3%A1bia%2C%20gostaria%20de%20saber%20mais%20sobre%20seus%20servi%C3%A7os%20de%20organiza%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">
+            Agendar consulta
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg>
+          </a>
+          <a class="text-link" href="#servicos">
+            Conheça os serviços
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-visual-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <span>Foto profissional</span>
+        </div>
+        <div class="hero-caption">
+          <div>
+            <small>Especialista em</small>
+            <span>Organização de ambientes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES STRIP -->
+    <div class="values-strip container" aria-label="Valores">
+      <span>Escuta &amp; Sensibilidade</span>
+      <span class="star" aria-hidden="true">✳</span>
+      <span>Sustentabilidade</span>
+      <span class="star" aria-hidden="true">✳</span>
+      <span>Desapego Consciente</span>
+      <span class="star" aria-hidden="true">✳</span>
+      <span>Funcionalidade</span>
+      <span class="star" aria-hidden="true">✳</span>
+      <span>Harmonia</span>
+    </div>
+
+    <!-- ABOUT / INTRO -->
+    <section class="intro-section section container reveal" aria-labelledby="intro-title">
+      <div class="intro-grid">
+        <div>
+          <p class="section-label">Nosso olhar</p>
+        </div>
+        <div class="intro-content">
+          <h2 id="intro-title">Um espaço organizado <em>transforma.</em><br>Uma vida organizada <em>floresce.</em></h2>
+          <div class="intro-bottom">
+            <p>Acredito em uma organização que começa pelas pessoas. Pelas suas histórias, seus hábitos e pela forma como querem viver. É desse encontro — entre escuta e método — que nasce cada transformação.</p>
+            <a class="text-link" href="/sobre">
+              Conheça minha trajetória
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO PREVIEW -->
+    <section class="section container" aria-labelledby="projects-title" style="padding-top:0">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-label">Transformações em destaque</p>
+          <h2 id="projects-title">Ambientes com <em>história.</em></h2>
+        </div>
+        <a class="text-link" href="/portfolio">
+          Todos os projetos
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg>
+        </a>
+      </div>
+      <div class="projects-grid staggered">
+        <article class="project-card reveal">
+          <a class="project-link" href="/portfolio#residencial" aria-label="Ver projeto: Organização Residencial">
+            <div class="project-photo">
+              <div class="project-photo-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+                <span>Foto do projeto</span>
+              </div>
+              <span class="project-tag">Residencial</span>
+            </div>
+            <div class="project-info">
+              <div>
+                <h3>Closet &amp; Armários</h3>
+                <p>Funcionalidade, beleza e harmonia</p>
+              </div>
+              <span class="project-number">01</span>
+            </div>
+          </a>
+        </article>
+        <article class="project-card reveal">
+          <a class="project-link" href="/portfolio#corporativo" aria-label="Ver projeto: Organização Corporativa">
+            <div class="project-photo">
+              <div class="project-photo-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                  <polyline points="16 21 16 3 8 3 8 21"/>
+                </svg>
+                <span>Foto do projeto</span>
+              </div>
+              <span class="project-tag">Corporativo</span>
+            </div>
+            <div class="project-info">
+              <div>
+                <h3>Escritórios &amp; Empresas</h3>
+                <p>Produtividade com organização sistêmica</p>
+              </div>
+              <span class="project-number">02</span>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="servicos" class="services-preview section container reveal" aria-labelledby="services-title">
+      <div class="services-intro">
+        <p class="section-label">Como posso ajudar</p>
+        <h2 id="services-title">Do primeiro olhar<br>ao último <em>detalhe.</em></h2>
+        <p>Um método completo para transformar seus ambientes em espaços que fazem sentido para a sua vida.</p>
+        <a class="text-link" href="/servicos">
+          Conheça os serviços
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg>
+        </a>
+      </div>
+      <div class="service-list">
+        <a class="service-row" href="/servicos#residencial">
+          <span>01</span>
+          <div>
+            <h3>Organização Residencial</h3>
+            <p>Closets, armários, cozinhas e todos os ambientes da sua casa organizados com método sistêmico e sustentável.</p>
+          </div>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg>
+        </a>
+        <a class="service-row" href="/servicos#corporativo">
+          <span>02</span>
+          <div>
+            <h3>Consultoria Corporativa</h3>
+            <p>Escritórios, arquivos e espaços empresariais otimizados para produtividade e bem-estar da equipe.</p>
+          </div>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg>
+        </a>
+        <a class="service-row" href="/servicos#treinamentos">
+          <span>03</span>
+          <div>
+            <h3>Treinamentos &amp; Palestras</h3>
+            <p>Workshops, cursos e mentorias para quem quer aprender a arte da organização sistêmica e aplicar na vida.</p>
+          </div>
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="quote-band container reveal" aria-label="Frase de destaque">
+      <svg class="flower" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+        <path d="M25 4v42M4 25h42M10 10l30 30M10 40l30-30M17 5l16 40M5 17l40 16M5 33l40-16M17 45 33 5"/>
+        <circle cx="25" cy="25" r="13"/>
+      </svg>
+      <p>"Organizar não é apenas arrumar.<br>É cuidar da vida que acontece<br>em cada espaço."</p>
+      <span class="caption">Fábia Vieira — + de 30 anos de experiência</span>
+    </section>
+
+    <!-- DEPOIMENTOS PREVIEW -->
+    <section class="section container reveal" aria-labelledby="depoimentos-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">O que dizem</p>
+          <h2 id="depoimentos-title">Quem já <em>viveu</em> a transformação.</h2>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+        <div style="padding: 32px; background: var(--warm-bg); border-left: 3px solid var(--accent);">
+          <p style="font-family: var(--serif); font-size: 18px; line-height: 1.6; font-style: italic; margin-bottom: 16px;">"A Fábia transformou minha casa e minha rotina. Incrível como a organização muda tudo."</p>
+          <p style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);">— Cliente satisfeita</p>
+        </div>
+        <div style="padding: 32px; background: var(--warm-bg); border-left: 3px solid var(--accent);">
+          <p style="font-family: var(--serif); font-size: 18px; line-height: 1.6; font-style: italic; margin-bottom: 16px;">"Profissional excepcional. O método sistêmico fez toda a diferença no nosso escritório."</p>
+          <p style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);">— Cliente empresarial</p>
+        </div>
+        <div style="padding: 32px; background: var(--warm-bg); border-left: 3px solid var(--accent);">
+          <p style="font-family: var(--serif); font-size: 18px; line-height: 1.6; font-style: italic; margin-bottom: 16px;">"Recomendo de olhos fechados. Sensibilidade e competência em cada detalhe."</p>
+          <p style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);">— Aluna do workshop</p>
+        </div>
+      </div>
+      <p style="font-size: 11px; color: var(--muted); margin-top: 20px; text-align: center; letter-spacing: 0.05em;">* Depoimentos ilustrativos — serão substituídos por relatos reais de clientes</p>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="cta-band container" aria-labelledby="cta-title">
+      <div>
+        <p class="eyebrow">O próximo ambiente pode ser o seu</p>
+        <h2 id="cta-title">Toda transformação começa<br>com uma <em>conversa.</em></h2>
+      </div>
+      <a class="button light" href="https://wa.me/5585992426846?text=Ol%C3%A1%20F%C3%A1bia%2C%20gostaria%20de%20agendar%20uma%20conversa%20sobre%20organiza%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">
+        Vamos conversar
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg>
+      </a>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="Fábia Vieira — Início">
+          <div class="brand-icon">F</div>
+          <span>
+            <span class="brand-name">Fábia Vieira</span>
+            <span class="brand-caption">Organização Sistêmica &amp; Sustentável</span>
+          </span>
+        </a>
+        <p>Organização que transforma ambientes e vidas.<br>Mais de 30 anos de experiência.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Explore</p>
+        <nav class="footer-links" aria-label="Navegação do rodapé">
+          <a href="/">Início</a>
+          <a href="/sobre">Sobre</a>
+          <a href="/servicos">Serviços</a>
+          <a href="/portfolio">Portfólio</a>
+          <a href="/contato">Contato</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer-heading">Vamos conversar?</p>
+        <div class="footer-links">
+          <span>Seu próximo ambiente organizado.</span>
+          <a href="https://wa.me/5585992426846?text=Ol%C3%A1%20F%C3%A1bia%2C%20vi%20seu%20site%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener noreferrer">WhatsApp: (85) 9 9242-6846 ↗</a>
+          <a href="https://www.instagram.com/fabiavieiraoficial/" target="_blank" rel="noopener noreferrer">Instagram: @fabiavieiraoficial ↗</a>
+          <a href="/contato">Entre em contato ↗</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Fábia Vieira · Organização Sistêmica e Sustentável.</p>
+      <a class="back-top" href="#topo">
+        Voltar ao topo
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- ========== WHATSAPP FLOAT ========== -->
+  <a class="whatsapp-float" href="https://wa.me/5585992426846?text=Ol%C3%A1%20F%C3%A1bia%2C%20vi%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20organiza%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp com Fábia Vieira">
+    <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.63C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 6.46 17.5 2 12.04 2M12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.68 12.04 3.68C16.58 3.68 20.27 7.37 20.27 11.91C20.27 16.46 16.58 20.15 12.04 20.15M16.56 14.4C16.31 14.28 15.1 13.69 14.88 13.61C14.65 13.52 14.49 13.48 14.32 13.73C14.16 13.98 13.7 14.52 13.56 14.68C13.42 14.85 13.28 14.87 13.04 14.75C12.79 14.63 11.99 14.36 11.04 13.52C10.3 12.87 9.8 12.06 9.66 11.81C9.52 11.57 9.64 11.44 9.77 11.31C9.88 11.2 10.02 11.01 10.14 10.87C10.26 10.73 10.3 10.63 10.38 10.46C10.46 10.3 10.42 10.15 10.36 10.03C10.3 9.91 9.81 8.7 9.6 8.2C9.4 7.71 9.2 7.78 9.04 7.77L8.56 7.76C8.39 7.76 8.12 7.82 7.89 8.07C7.66 8.32 7.02 8.92 7.02 10.15C7.02 11.38 7.91 12.56 8.04 12.72C8.16 12.89 9.8 15.42 12.3 16.5C12.9 16.76 13.36 16.91 13.73 17.03C14.33 17.22 14.87 17.19 15.3 17.13C15.78 17.06 16.78 16.52 16.99 15.94C17.2 15.37 17.2 14.87 17.14 14.75C17.08 14.63 16.81 14.53 16.56 14.4Z"/></svg>
+    <span class="whatsapp-float-label">Conversar no WhatsApp</span>
+  </a>
+
+  <!-- ========== REVEAL ANIMATION ========== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
+  </script>
+
+</body>
+</html>
