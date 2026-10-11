@@ -8,6 +8,7 @@
   <meta property="og:title" content="Fábia Vieira | Organização Sistêmica e Sustentável">
   <meta property="og:description" content="+ de 30 anos transformando pessoas, casas e empresas. Organização que transforma ambientes e vidas.">
   <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-icon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
@@ -77,15 +78,92 @@
       flex-shrink: 0;
     }
     .brand-icon {
-      width: 42px; height: 42px;
-      border: 1.5px solid var(--accent);
-      border-radius: 50%;
+      width: 44px; height: 44px;
       display: grid;
       place-items: center;
+      flex-shrink: 0;
+    }
+    .brand-icon svg {
+      width: 100%; height: 100%;
+      display: block;
+    }
+
+    /* Intro portrait */
+    .intro-portrait {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 200px;
+    }
+    .intro-portrait img {
+      width: 130px; height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+      padding: 3px;
+      background: var(--paper);
+      box-shadow: 0 8px 24px rgba(36,33,30,0.06);
+    }
+    .intro-portrait-info strong {
+      display: block;
       font-family: var(--serif);
-      font-size: 22px;
-      color: var(--accent);
+      font-size: 19px;
       font-style: italic;
+      color: var(--ink);
+    }
+    .intro-portrait-info span {
+      display: block;
+      font-size: 11px;
+      line-height: 1.4;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* Instagram gallery */
+    .instagram-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .instagram-card {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: var(--warm-bg);
+      display: block;
+    }
+    .instagram-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .instagram-card:hover img {
+      transform: scale(1.06);
+    }
+    .instagram-overlay {
+      position: absolute; inset: 0;
+      background: rgba(36, 33, 30, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .instagram-card:hover .instagram-overlay {
+      opacity: 1;
+    }
+    .instagram-overlay span {
+      color: #faf7f2;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 6px 14px;
+      border: 1px solid rgba(250, 247, 242, 0.6);
+    }
+    @media (max-width: 768px) {
+      .instagram-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     }
     .brand-name {
       font-family: var(--serif);
@@ -763,7 +841,17 @@
   <!-- ========== HEADER ========== -->
   <header class="site-header container">
     <a class="brand" href="/" aria-label="Fábia Vieira — Início">
-      <div class="brand-icon">F</div>
+      <div class="brand-icon">
+        <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" stroke="#c4975c" stroke-width="1.5"/>
+          <circle cx="32" cy="32" r="26.5" stroke="#5a534c" stroke-width="0.7" stroke-dasharray="2 3" opacity="0.45"/>
+          <path d="M24 18 V46" stroke="#24211e" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M24 19.5 H39" stroke="#24211e" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M24 30 H36" stroke="#24211e" stroke-width="2.0" stroke-linecap="round"/>
+          <path d="M31 25 L40 44 L49 25" stroke="#c4975c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="32" cy="12" r="1.8" fill="#c4975c"/>
+        </svg>
+      </div>
       <span>
         <span class="brand-name">Fábia Vieira</span>
         <span class="brand-caption">Organização Sistêmica &amp; Sustentável</span>
@@ -818,13 +906,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-visual-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-            <polyline points="9 22 9 12 15 12 15 22"/>
-          </svg>
-          <span>Foto profissional</span>
-        </div>
+        <img src="assets/images/fabia_editorial.jpg" alt="Fábia Vieira — Gestora de Organização Sistêmica e Sustentável" width="720" height="1280" fetchpriority="high">
         <div class="hero-caption">
           <div>
             <small>Especialista em</small>
@@ -852,6 +934,13 @@
       <div class="intro-grid">
         <div>
           <p class="section-label">Nosso olhar</p>
+          <div class="intro-portrait">
+            <img src="assets/images/fabia_sorriso.jpg" alt="Fábia Vieira" width="260" height="260" loading="lazy">
+            <div class="intro-portrait-info">
+              <strong>Fábia Vieira</strong>
+              <span>+ de 30 anos transformando lares e empresas</span>
+            </div>
+          </div>
         </div>
         <div class="intro-content">
           <h2 id="intro-title">Um espaço organizado <em>transforma.</em><br>Uma vida organizada <em>floresce.</em></h2>
@@ -882,13 +971,7 @@
         <article class="project-card reveal">
           <a class="project-link" href="/portfolio#residencial" aria-label="Ver projeto: Organização Residencial">
             <div class="project-photo">
-              <div class="project-photo-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                  <polyline points="9 22 9 12 15 12 15 22"/>
-                </svg>
-                <span>Foto do projeto</span>
-              </div>
+              <img src="assets/images/projeto-residencial.webp" alt="Projeto: Closet &amp; Armários" width="1400" height="1050" loading="lazy">
               <span class="project-tag">Residencial</span>
             </div>
             <div class="project-info">
@@ -903,13 +986,7 @@
         <article class="project-card reveal">
           <a class="project-link" href="/portfolio#corporativo" aria-label="Ver projeto: Organização Corporativa">
             <div class="project-photo">
-              <div class="project-photo-placeholder">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                  <polyline points="16 21 16 3 8 3 8 21"/>
-                </svg>
-                <span>Foto do projeto</span>
-              </div>
+              <img src="assets/images/projeto-corporativo.webp" alt="Projeto: Escritórios &amp; Empresas" width="1400" height="1050" loading="lazy">
               <span class="project-tag">Corporativo</span>
             </div>
             <div class="project-info">
@@ -998,6 +1075,46 @@
       <p style="font-size: 11px; color: var(--muted); margin-top: 20px; text-align: center; letter-spacing: 0.05em;">* Depoimentos ilustrativos — serão substituídos por relatos reais de clientes</p>
     </section>
 
+    <!-- INSTAGRAM / BASTIDORES -->
+    <section class="section container reveal" aria-labelledby="instagram-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Vida em Movimento</p>
+          <h2 id="instagram-title">Bastidores &amp; <em>Transformações.</em></h2>
+        </div>
+        <a class="text-link" href="https://www.instagram.com/fabiavieiraoficial/" target="_blank" rel="noopener noreferrer">
+          @fabiavieiraoficial no Instagram
+          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg>
+        </a>
+      </div>
+      <div class="instagram-grid">
+        <a class="instagram-card" href="https://www.instagram.com/fabiavieiraoficial/" target="_blank" rel="noopener noreferrer" aria-label="Ver publicação de ambientes no Instagram">
+          <img src="assets/images/feed_01.jpg" alt="Fábia Vieira em ambiente residencial organizado" loading="lazy">
+          <div class="instagram-overlay">
+            <span>Ambientes</span>
+          </div>
+        </a>
+        <a class="instagram-card" href="https://www.instagram.com/fabiavieiraoficial/" target="_blank" rel="noopener noreferrer" aria-label="Ver publicação de harmonia no Instagram">
+          <img src="assets/images/feed_05.jpg" alt="Harmonia, bem-estar e sustentabilidade" loading="lazy">
+          <div class="instagram-overlay">
+            <span>Harmonia</span>
+          </div>
+        </a>
+        <a class="instagram-card" href="https://www.instagram.com/fabiavieiraoficial/" target="_blank" rel="noopener noreferrer" aria-label="Ver publicação Encontro Florescer no Instagram">
+          <img src="assets/images/feed_08.jpg" alt="Encontro Florescer e workshops" loading="lazy">
+          <div class="instagram-overlay">
+            <span>Encontros</span>
+          </div>
+        </a>
+        <a class="instagram-card" href="https://www.instagram.com/fabiavieiraoficial/" target="_blank" rel="noopener noreferrer" aria-label="Ver publicação de treinamentos no Instagram">
+          <img src="assets/images/feed_09.jpg" alt="Palestras e mentorias corporativas" loading="lazy">
+          <div class="instagram-overlay">
+            <span>Treinamentos</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
     <!-- CTA BAND -->
     <section class="cta-band container" aria-labelledby="cta-title">
       <div>
@@ -1017,7 +1134,17 @@
     <div class="footer-main">
       <div class="footer-brand">
         <a class="brand" href="/" aria-label="Fábia Vieira — Início">
-          <div class="brand-icon">F</div>
+          <div class="brand-icon">
+            <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <circle cx="32" cy="32" r="30" stroke="#c4975c" stroke-width="1.5"/>
+              <circle cx="32" cy="32" r="26.5" stroke="#5a534c" stroke-width="0.7" stroke-dasharray="2 3" opacity="0.45"/>
+              <path d="M24 18 V46" stroke="#24211e" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M24 19.5 H39" stroke="#24211e" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M24 30 H36" stroke="#24211e" stroke-width="2.0" stroke-linecap="round"/>
+              <path d="M31 25 L40 44 L49 25" stroke="#c4975c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="32" cy="12" r="1.8" fill="#c4975c"/>
+            </svg>
+          </div>
           <span>
             <span class="brand-name">Fábia Vieira</span>
             <span class="brand-caption">Organização Sistêmica &amp; Sustentável</span>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 64" fill="none">
+  <!-- Monogram Emblem (FV + Harmony Ring) -->
+  <g transform="translate(4, 4)">
+    <!-- Outer delicate harmony ring -->
+    <circle cx="28" cy="28" r="26" stroke="#c4975c" stroke-width="1.2" opacity="0.95"/>
+    <circle cx="28" cy="28" r="23" stroke="#e8ddd0" stroke-width="0.6" stroke-dasharray="2 3" opacity="0.4"/>
+    
+    <!-- Emblem FV Geometry -->
+    <path d="M21 16 V40" stroke="#faf7f2" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M21 17.5 H34" stroke="#faf7f2" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M21 26.5 H31" stroke="#faf7f2" stroke-width="1.6" stroke-linecap="round"/>
+    
+    <!-- Harmonious overlapping V -->
+    <path d="M27 22 L35 38 L43 22" stroke="#c4975c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Subtle star of transformation -->
+    <circle cx="28" cy="11" r="1.4" fill="#c4975c"/>
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(74, 8)">
+    <!-- Main Brand Name -->
+    <text x="0" y="27" font-family="'Instrument Serif', Georgia, serif" font-size="26" font-style="italic" fill="#faf7f2" letter-spacing="1.5">Fábia Vieira</text>
+    
+    <!-- Decorative hairline divider with subtle diamond -->
+    <line x1="0" y1="36" x2="250" y2="36" stroke="#c4975c" stroke-width="0.75" opacity="0.7"/>
+    <polygon points="125,34.5 127,36 125,37.5 123,36" fill="#c4975c"/>
+    
+    <!-- Descriptor / Positioning -->
+    <text x="0" y="47" font-family="'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif" font-size="7.5" font-weight="500" fill="#d4c5b2" letter-spacing="2.8">ORGANIZAÇÃO SISTÊMICA &amp; SUSTENTÁVEL</text>
+  </g>
+</svg>

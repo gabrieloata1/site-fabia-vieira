@@ -20,6 +20,19 @@ Página principal (Home) desenvolvida com design minimalista, contemporâneo e a
 8. **Depoimentos:** Área dedicada à prova social.
 9. **CTA Final & Rodapé:** Fechamento comercial com links diretos e botão flutuante do WhatsApp.
 
+## 🎨 Identidade Visual & Logos
+O projeto conta com identidade visual completa e responsiva armazenada em `assets/images/`:
+- **`logo.svg` / `logo.png`**: Logo horizontal principal (monograma FV + anel de harmonia + tipografia editorial).
+- **`logo-light.svg` / `logo-light.png`**: Versão em tons claros para fundos escuros.
+- **`logo-icon.svg` / `logo-icon.png`**: Monograma exclusivo (emblema redondo para ícone, avatar e favicon).
+
+## 📸 Imagens e Fotografia
+Imagens reais e fotos editoriais extraídas do perfil oficial ([@fabiavieiraoficial](https://www.instagram.com/fabiavieiraoficial/)):
+- `fabia_editorial.jpg`: Retrato editorial profissional da Fábia Vieira no topo (Hero).
+- `fabia_sorriso.jpg`: Retrato acolhedor na seção de apresentação e trajetória.
+- `feed_01.jpg` a `feed_10.jpg`: Bastidores, workshops (Encontro Florescer), ambientes e palestras.
+- `projeto-residencial.webp` e `projeto-corporativo.webp`: Referências visuais de projetos de ambientes organizados.
+
 ## 🛠️ Tecnologias
 - HTML5 Semântico
 - CSS3 Moderno (Custom Properties, Flexbox, CSS Grid, Intersection Observer)

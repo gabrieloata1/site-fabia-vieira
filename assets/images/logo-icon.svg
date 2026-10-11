@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Outer delicate harmony ring -->
+  <circle cx="32" cy="32" r="30" stroke="#c4975c" stroke-width="1.5"/>
+  <circle cx="32" cy="32" r="26.5" stroke="#5a534c" stroke-width="0.75" stroke-dasharray="2.5 3.5" opacity="0.5"/>
+  
+  <!-- Emblem FV Geometry -->
+  <path d="M24 18 V46" stroke="#24211e" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M24 19.5 H39" stroke="#24211e" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M24 30 H36" stroke="#24211e" stroke-width="2.0" stroke-linecap="round"/>
+  
+  <!-- Harmonious overlapping V -->
+  <path d="M31 25 L40 44 L49 25" stroke="#c4975c" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Subtle star / spark of transformation -->
+  <circle cx="32" cy="12" r="1.8" fill="#c4975c"/>
+</svg>
